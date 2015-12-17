@@ -26,13 +26,23 @@ public class VerifyLog {
 	
 	public void showValues(){
 		Set<String> unique = new HashSet<String>(requestTo);
-		for (String key : unique) {
-		    System.out.println(key + " - " + Collections.frequency(requestTo, key));
-		}		
+		List<String> aux = new ArrayList<String>();
 		
+		for (String key : unique) 
+			aux.add(Collections.frequency(requestTo, key) + " - " +key);	
+		
+		Collections.sort(aux, Collections.reverseOrder());
+		for(int i=0;i<3;i++)
+			System.out.println(aux.get(i));
+		
+		aux.clear();
 		unique = new HashSet<String>(responseStatus);
-		for (String key : unique) {
-		    System.out.println(key + " - " + Collections.frequency(responseStatus, key));
-		}
+		for (String key : unique) 
+			aux.add(Collections.frequency(responseStatus, key) + " - " +key);
+		
+		Collections.sort(aux, Collections.reverseOrder());
+		for(String string : aux)
+			System.out.println(string);
+		
 	}
 }
