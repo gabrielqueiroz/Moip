@@ -10,7 +10,13 @@ public class VerifyLog {
 	private List<String> requestTo = new ArrayList<>();
 	private List<String> responseStatus = new ArrayList<>();
 	
-	public void loadArrays(){
+	/**
+	 * Analisa cada linha do arquivo "log.txt", realizando as seguintes tarefas:
+	 * Parse da String baseado em espaço movendo para um array de String webhook.
+	 * Analise do array webhook em busca dos componentes "request_to" e "response_status".
+	 * Parse deste componente baseado em aspas "", armazenando seu valor em um array local correspondente.
+	 */
+	public void loadLists(){
 		ReadFile readFile = new ReadFile();
 		List<String> log = readFile.lineToString();
 		for(String line : log){
@@ -24,6 +30,13 @@ public class VerifyLog {
 		}		
 	}
 	
+	/**
+	 * Utiliza array local baseado apenas em valores unicos presentes nas listas locais de requestTo e responseStatus 
+	 * Collections.frequency utilizado para verificar a frequencia de uma String dentro da lista.
+	 * Utiliza uma lista auxiliar para ser ordenado com base em sua frequencia.
+	 * Exibe os Top 3 requestTo.
+	 * Exibe em ordem decrescente os status.
+	 */
 	public void showValues(){
 		Set<String> unique = new HashSet<String>(requestTo);
 		List<String> aux = new ArrayList<String>();

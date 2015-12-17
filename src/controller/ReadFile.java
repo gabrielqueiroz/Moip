@@ -6,6 +6,12 @@ import java.util.List;
 
 public class ReadFile {
 	
+	/**
+	 * Realiza a leitura de um arquivo de texto "log.txt" na pasta "scr" do projeto, 
+	 * retornando uma list de strings contendo cada lista do arquivo.
+	 * 
+	 * @return Lista de String contendo cada linha do arquivo
+	 */
 	public List<String> lineToString(){
 		List<String> temp = new ArrayList<>();
 		String file = "src/log.txt";
