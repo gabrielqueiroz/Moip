@@ -1,17 +1,17 @@
 # Moip
 
-* Sobre
+* **Sobre**
 
 Projeto Java para leitura de um arquivo log, e contagem de parametros request_to e response_status.
 
-* Como Rodar?
+* **Como Rodar?**
 
 1. Clonar o projeto para um repositório local, ou fazer checkout do projeto em uma IDE Java (Por exemplo, Eclipse). 
   1. ```git clone https://github.com/gabrielqueiroz/Moip.git```
 2. Executar a classe "Moip" do pacote "test".
 3. O resultado será apresentado no console da IDE.
 
-* Como funciona?
+* **Como funciona?**
 
 O primeiro passo para solucionar o problema foi elaborar uma classe para leitura do Log (ReadFile). O arquivo de logo foi incluído dentro da pasta do projeto, e um método foi criado para ler cada linha do arquivo, transpondo para uma lista de Strings, contendo assim cada webhook do log.
 
@@ -23,7 +23,7 @@ A classe VerifyLog é responsável por verificar o log, e pode ser reutilizada p
 
 Para executar o teste, basta executar a classe "Moip" presente no pacote "test"
 
-* Resultado Final
+* **Resultado Final**
 
 ```
  https://eagerhaystack.com - 750 
