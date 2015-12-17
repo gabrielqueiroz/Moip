@@ -6,17 +6,27 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 
+ * Classe responsável pela análise de webhooks presentes em um log.
+ * 
+ * @author gqueiroz
+ *
+ */
 public class VerifyLog {
 	private List<String> requestTo = new ArrayList<>();
 	private List<String> responseStatus = new ArrayList<>();
 	
 	/**
-	 * Analisa cada linha do arquivo "log.txt", realizando as seguintes tarefas:
-	 * Parse da String baseado em espaÃ§o movendo para um array de String webhook.
-	 * Analise do array webhook em busca dos componentes "request_to" e "response_status".
-	 * Parse deste componente baseado em aspas "", armazenando seu valor em um array local correspondente.
 	 * 
-	 * @param Arquivo de Log para ser analisado.
+	 * Carrega as duas listas locais com as informações presentes no log.
+	 * 
+	 * Analisa cada linha do arquivo "log.txt", realizando as seguintes tarefas:
+	 * -Parse da String baseado em espacos (\\s) movendo para um array de string contendo cada componente do webhook.
+	 * -Analise do array de webhook em busca dos componentes "request_to" e "response_status".
+	 * -Parse deste componente baseado em aspas (""), armazenando seu valor em uma lista local correspondente.
+	 * 
+	 * @param log Arquivo de Log para ser analisado.
 	 */
 	public void loadLists(List<String> log){				
 		for(String line : log){
@@ -31,13 +41,14 @@ public class VerifyLog {
 	}
 	
 	/**
-	 * Utiliza array local baseado apenas em valores unicos presentes nas listas locais de requestTo e responseStatus 
-	 * Contabiliza cada String unica, verificando a frequencia da mesma dentro da lista.
-	 * Utiliza uma lista auxiliar para ordenar as Strings a partir de seus novos valores.
 	 * 
 	 * Exibe os Top 3 requestTo.
 	 * Exibe em ordem decrescente os status.
 	 * 
+	 * Utiliza array local baseado apenas em valores unicos presentes nas listas locais de requestTo e responseStatus 
+	 * Contabiliza cada String unica, verificando a frequencia da mesma dentro da lista.
+	 * Utiliza uma lista auxiliar para ordenar as Strings a partir de seus novos valores.
+	 *  
 	 */
 	public void showValues(){
 		Set<String> unique = new HashSet<String>(requestTo);

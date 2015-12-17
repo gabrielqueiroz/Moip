@@ -4,13 +4,19 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe responsável pela leitura de arquivos do sistema.
+ * 
+ * @author gqueiroz
+ *
+ */
 public class ReadFile {	
 	
 	/**
 	 * Realiza a leitura de um arquivo de texto, 
 	 * retornando uma lista de Strings contendo cada linha do arquivo.
 	 * 
-	 * @param Arquivo de texto para ser lido.
+	 * @param file Arquivo de texto para ser lido.
 	 * @return Lista de String contendo cada linha do arquivo
 	 */
 	public List<String> lineToString(String file){
