@@ -4,7 +4,7 @@
 
 Projeto Java para leitura de um arquivo log, e contagem de parametros request_to e response_status.
 
-* **Como Rodar?**
+* **Como executar o programa?**
 
 1. Clonar o projeto para um repositório local, ou fazer checkout do projeto em uma IDE Java (Por exemplo, Eclipse). 
   1. ```git clone https://github.com/gabrielqueiroz/Moip.git```
