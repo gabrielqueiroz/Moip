@@ -4,17 +4,17 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadFile {
+public class ReadFile {	
 	
 	/**
-	 * Realiza a leitura de um arquivo de texto "log.txt" na pasta "scr" do projeto, 
-	 * retornando uma list de strings contendo cada lista do arquivo.
+	 * Realiza a leitura de um arquivo de texto, 
+	 * retornando uma lista de Strings contendo cada linha do arquivo.
 	 * 
+	 * @param Arquivo de texto para ser lido.
 	 * @return Lista de String contendo cada linha do arquivo
 	 */
-	public List<String> lineToString(){
-		List<String> temp = new ArrayList<>();
-		String file = "src/log.txt";
+	public List<String> lineToString(String file){
+		List<String> temp = new ArrayList<>();		
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 		    String line;
