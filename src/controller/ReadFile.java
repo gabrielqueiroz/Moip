@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe responsável pela leitura de arquivos do sistema.
+ * Classe responsï¿½vel pela leitura de arquivos do sistema.
  * 
  * @author gqueiroz
  *
@@ -23,8 +23,7 @@ public class ReadFile {
 		List<String> temp = new ArrayList<>();		
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-		    String line;
-		    
+		    String line;		    
 		    while ((line = br.readLine()) != null) 
 		    	temp.add(line);
 		    
