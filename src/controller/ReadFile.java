@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Classe respons�vel pela leitura de arquivos do sistema.
+ * Classe responsavel pela leitura de arquivos do sistema.
  * 
  * @author gqueiroz
  *
@@ -13,7 +13,7 @@ import java.util.List;
 public class ReadFile {	
 	
 	/**
-	 * Realiza a leitura de um arquivo de texto, 
+	 * Realiza a leitura de um arquivo de texto (.txt), 
 	 * retornando uma lista de Strings contendo cada linha do arquivo.
 	 * 
 	 * @param file Arquivo de texto para ser lido.

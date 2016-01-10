@@ -13,11 +13,23 @@ import model.Webhook;
  */
 public class Moip {
 	
-	public static void main(String[] args) {		
+	public static void main(String[] args) {	
+
 		ReadFile readFile = new ReadFile();		
-		List<String> log = readFile.lineToString("src/testMin.txt");
+		List<String> log = readFile.lineToString("src/log.txt");
 		
 		VerifyLog verifyLog = new VerifyLog();
-		List<Webhook> test = verifyLog.getWebhook(log);
+		List<Webhook> listWebhooks = verifyLog.getWebhook(log);
+		
+		System.out.println(verifyLog.getStatistics(listWebhooks, "requestTo", 3));
+		
+		System.out.println(verifyLog.getStatistics(listWebhooks, "status", 0));
+		
+		System.out.println(verifyLog.getStatistics(listWebhooks, "responseHeaders", 3));
+		
+		System.out.println(verifyLog.getStatistics(listWebhooks, "level", 3)); 
+		
+		System.out.println(verifyLog.getStatistics(listWebhooks, "responseBody", 3));  
+		
 	}
 }

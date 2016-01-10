@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * Classe Model Webhook contendo os atributos de um objeto Webhook.
+ * 
+ * @author Gabriel Queiroz
+ * 
+ */
 public class Webhook {
 	private String level;
 	private String responseBody;
