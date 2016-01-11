@@ -21,7 +21,7 @@ Para leitura das informaçōes de Log, foi elaborada a classe **ReadFile**. A fu
 
 Toda a verificaçāo e gestāo das informaçōes de um Log é de responsabilidade da classe **VerifyLog**. A função **getWebhook** recebe uma lista de Strings, contendo cada linha de um Log, retornado uma **lista de objetos Webhooks**, facilitando o uso dos dados pertecentes ao log.
 
-Um método **isWebhook* foi elaborado para verificar se a linha a ser verifica possui todos os componentes necessarios para ser considerada um Webhook. 
+Um método **isWebhook** foi elaborado para verificar se a linha a ser verifica possui todos os componentes necessarios para ser considerada um Webhook. 
 
 Para verificação de estatísticas relacionadas aos objetos Webhook do Log, foi elaborado a função **getStatistics**. Esta possui três parâmetros, sendo eles: Lista de Webhooks a ser verificada; Atributo de um Webhook a ser relacionado (level, responseBody, requestTo, responseHeaders, status); Quantidade máxima de elementos a serem exibidos. A função avalia a lista de Webhooks basaeada no atributo requerido como parâmetro, e organiza em ordem decrescente a relação do atributo e o número de vezes que ele se repetiu no Log em uma quantidade específica de elementos, sendo que serão exibidos todos os elementos caso o parâmetro seja "0". Esta função pode verificar qualquer atributo de um Webhook e qualquer quantidade de elementos, como os tres primeiros elementos, retornando um String formatada contendo estas informações prontas para serem exbidas.
 
