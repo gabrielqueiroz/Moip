@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,14 +11,17 @@ import model.Webhook;
 import org.junit.Before;
 import org.junit.Test;
 
+import controller.ReadFile;
 import controller.VerifyLog;
 
 public class VerifyLogTest {
-	private VerifyLog verifyLog;
+	private VerifyLog verifyLog;	
+	private ReadFile readFile;
 
 	@Before
 	public void initialize() {
 		verifyLog = new VerifyLog();
+		readFile = new ReadFile();
 	}
 
 	@Test
@@ -58,4 +62,92 @@ public class VerifyLogTest {
 		assertEquals("y - x", result);
 	}
 
+	@Test
+	public void getStatisticsRequestTo() throws IOException{
+		String expected = " https://eagerhaystack.com - 750 \n" 
+				+ " https://surrealostrich.com.br - 734 \n"
+				+ " https://grimpottery.net.br - 732 \n";
+		
+		List<String> log = readFile.lineToString("src/log.txt");
+		List<Webhook> listWebhooks = verifyLog.getWebhook(log);
+		String result = verifyLog.getStatistics(listWebhooks, "requestTo", 3);
+		
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void getStatisticsResponseStatus() throws IOException{
+		String expected = " 404 - 1474 \n"
+						+ " 503 - 1451 \n"
+						+ " 400 - 1440 \n"
+						+ " 500 - 1428 \n"
+						+ " 200 - 1417 \n"
+						+ " 201 - 1402 \n"
+						+ " 204 - 1388 \n"; 
+		
+		List<String> log = readFile.lineToString("src/log.txt");
+		List<Webhook> listWebhooks = verifyLog.getWebhook(log);
+		String result = verifyLog.getStatistics(listWebhooks, "status", 0);
+		
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void getStatisticsRequestToMin() throws IOException{
+		String expected = " https://woodenoyster.com.br - 2 \n" 
+						+ " https://grimpottery.net.br - 2 \n"
+						+ " https://surrealostrich.com.br - 1 \n";
+			
+		List<String> log = readFile.lineToString("src/testMin.txt");
+		List<Webhook> listWebhooks = verifyLog.getWebhook(log);
+		String result = verifyLog.getStatistics(listWebhooks, "requestTo", 3);
+		
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void getStatisticsResponseStatusMin() throws IOException{
+		String expected = " 400 - 3 \n"
+						+ " 500 - 2 \n"
+						+ " 404 - 2 \n"
+						+ " 503 - 1 \n"
+						+ " 201 - 1 \n"
+						+ " 200 - 1 \n"; 
+			
+		List<String> log = readFile.lineToString("src/testMin.txt");		
+		List<Webhook> listWebhooks = verifyLog.getWebhook(log);
+		String result = verifyLog.getStatistics(listWebhooks, "status", 0);
+		
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void getStatisticsRequestToMax() throws IOException{
+		String expected = " https://eagerhaystack.com - 1500 \n" 
+						+ " https://surrealostrich.com.br - 1468 \n"
+						+ " https://grimpottery.net.br - 1464 \n";
+				
+		List<String> log = readFile.lineToString("src/testMax.txt");
+		List<Webhook> listWebhooks = verifyLog.getWebhook(log);
+		String result = verifyLog.getStatistics(listWebhooks, "requestTo", 3);
+		
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void getStatisticsResponseStatusMax() throws IOException{
+		String expected = " 404 - 2948 \n"
+						+ " 503 - 2902 \n"
+						+ " 400 - 2880 \n"
+						+ " 500 - 2856 \n"
+						+ " 200 - 2834 \n"
+						+ " 201 - 2804 \n"
+						+ " 204 - 2776 \n"; 
+				
+		List<String> log = readFile.lineToString("src/testMax.txt");
+		List<Webhook> listWebhooks = verifyLog.getWebhook(log);
+		String result = verifyLog.getStatistics(listWebhooks, "status", 0);
+		
+		assertEquals(expected, result);
+	}
 }
