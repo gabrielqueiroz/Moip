@@ -15,7 +15,7 @@ Projeto Java para leitura de um arquivo log, e contagem de parametros request_to
 
 O programa é dividido em tres pacotes, sendo estes: Controller, Model e Test.
 
-Para gestão das informações relacionadas a um Webhook, foi criado um objeto **Webhook** contendo informações especeficas do mesmo, tais como: level, responseBody, requestTo, responseHeaders, responseStatus.
+Para gestão das informações relacionadas a um Webhook, foi criado um objeto **Webhook** contendo informações específicas do mesmo, tais como: level, responseBody, requestTo, responseHeaders, responseStatus.
 
 Para leitura das informaçōes de Log, foi elaborada a classe **ReadFile**. A função **lineToString** é responsavel pela leitura de cada linha do Log, retornando uma lista de Strings (List<String).
 
