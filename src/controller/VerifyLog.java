@@ -35,7 +35,7 @@ public class VerifyLog {
 						webhook.setLevel(temp.substring(6, temp.length()));
 					else if (temp.contains("response_body"))
 						webhook.setResponseBody(temp.substring(15,
-								temp.length()));
+								temp.length() - 1));
 					else if (temp.contains("request_to"))
 						webhook.setRequestTo(temp.substring(12,
 								temp.length() - 1));
@@ -56,13 +56,18 @@ public class VerifyLog {
 		return listWebhooks;
 	}
 
+	/**
+	 * Funcao para verificar se um dado log possui caracteristicas de um webhook
+	 * 
+	 * @param log
+	 * @return false caso nao possua um dos elementos necessarios para um
+	 *         webhook
+	 */
 	public boolean isWebhook(String log) {
-		if (!log.contains("response_body") 
-				&& !log.contains("request_to")
-				&& !log.contains("response_status")
-				&& !log.contains("response_body")
-				&& !log.contains("response_headers") 
-				&& !log.contains("status"))
+		if (!log.contains("response_body") || !log.contains("request_to")
+				|| !log.contains("response_status")
+				|| !log.contains("response_body")
+				|| !log.contains("response_headers") || !log.contains("status"))
 			return false;
 		return true;
 	}
@@ -131,7 +136,8 @@ public class VerifyLog {
 	/**
 	 * Formata uma string "x % y" para "y - x".
 	 * 
-	 * @param String que sera formatada
+	 * @param String
+	 *            que sera formatada
 	 * @return String formatada.
 	 */
 	public String swapString(String string) {

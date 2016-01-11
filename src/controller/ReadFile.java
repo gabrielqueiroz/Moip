@@ -19,20 +19,21 @@ public class ReadFile {
 	 * @param file Arquivo de texto para ser lido.
 	 * @return Lista de String contendo cada linha do arquivo
 	 */
-	public List<String> lineToString(String file){
+	public List<String> lineToString(String file) throws IOException{
 		List<String> temp = new ArrayList<>();		
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 		    String line;		    
 		    while ((line = br.readLine()) != null) 
-		    	temp.add(line);
-		    
+		    	temp.add(line);		    
 		} catch (FileNotFoundException e) {
 			System.out.println("Arquivo nao encontrado: "+e);
 			e.printStackTrace();
+			throw e;			
 		} catch (IOException e) {
 			System.out.println("IOException: "+e);
 			e.printStackTrace();
+			throw e;
 		}
 		
 		return temp;

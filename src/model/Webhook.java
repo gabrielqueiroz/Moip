@@ -52,6 +52,20 @@ public class Webhook {
 	public void setResponseStatus(String responseStatus) {
 		this.responseStatus = responseStatus;
 	}
+	
+	public Webhook(){
+		
+	}
+	
+	public Webhook(String level, String responseBody, String requestTo,
+			String responseHeaders, String responseStatus) {
+		super();
+		this.level = level;
+		this.responseBody = responseBody;
+		this.requestTo = requestTo;
+		this.responseHeaders = responseHeaders;
+		this.responseStatus = responseStatus;
+	}
 
 	@Override
 	public String toString() {
@@ -59,4 +73,5 @@ public class Webhook {
 				+ ", requestTo=" + requestTo + ", responseHeaders="
 				+ responseHeaders + ", responseStatus=" + responseStatus + "]";
 	}
+	
 }
