@@ -28,6 +28,7 @@ Para verificação de estatísticas relacionadas aos objetos Webhook do Log, foi
 Por final, foi elaborado um método auxiliar para formataçāo de dados internos da funçāo **getStatistics**.
 
 Para executar o programa basta executar a classe "Moip" presente no pacote "Controller". Testes unitários foram elaborados para cada situação relevante pertencente em cada classe, tais como: 
+
 1. Teste de Exception na classe de leitura e teste de validação de leitura para o metodo "lineToString".
 2. Teste de conversão de um log contendo uma ou mais linhas para uma lista de objetos Webhooks para o metodo "getWebhook".
 2. Teste de valores reais, minímos (10 linhas) e máximos (dobro da capacidade) para o metodo "getStatistics", com base nos atributos solicitados no teste (requestTo e status).
